@@ -1,13 +1,53 @@
 <html>
     <head> 
-        <title>Ultra Fan</title>
+        <div id = "title", name="title"> 
+            
+            <title> {% block title %} Ultra Fan {% endblock %} </title>
+        
+        </div>
+        <style type="text/css"> 
+        .sidebar {
+            height: 100%;
+            width: 130px;
+            align-self: center;
+            position: fixed;
+            z-index:1;
+            top:0;
+            Left:0;
+            background-color: 	#002c5f;
+            overflow-x: hidden;
+            padding-top: 20px;
+        }        
+        .sidebar a {
+            padding: 6px 8px 6px 16px;
+            text-decoration: none;
+            font-size: 25px;
+            color: whitesmoke;
+            display: block;
+        }
+
+        .sidebar a:hover{
+            color: grey;
+        }
+        
+        .main{
+            margin-left: 140px;
+            padding: 0px 10px;
+        }
+        </style>
     </head>
     <body>
-        <p>
-            <div id="content", name="content">
-            <{% block content %}
-            {% endblock%}
-            </div>
-        </p>
+        <div class="sidebar">
+            <a href="/">Home</a>
+            <a href="/roster">Roster</a>
+            <a href="/videos">Videos</a>
+            <a href="/calendar">Calendar</a>
+            <a href="/store">Store</a>
+        </div>
+        <div class="main", id="test", name="test">
+                {% block content %} 
+                <h1> Base Template </h1>
+                {% endblock %} 
+        </div>
     </body>
 </html>
