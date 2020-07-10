@@ -2,6 +2,8 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
-    path('', include('home.urls')), # This sets the path to the home screen to the home url 
+    path('fan/', include('home.urls')), 
     path('admin/', admin.site.urls),
+    path('register/', include('register.urls')),
+    path('', include('intro.urls')),
 ]
