@@ -20,12 +20,15 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'home.apps.HomeConfig', # Make sure the app is installed in the settings, home.apps.HomeConfig is setting the path
+    'register.apps.RegisterConfig',
+    'intro.apps.IntroConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'crispy_forms',
 ]
 
 
@@ -109,6 +112,4 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'bootstrap'),
-]
+CRISPY_TEMPLATE_PACK="bootstrap4"
