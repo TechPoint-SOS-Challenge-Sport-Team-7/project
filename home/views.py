@@ -24,3 +24,6 @@ def drivein(response):
 
 def questions(response):
     return render(response, "home/questions.html", {})
+
+def settings(response):
+    return render(response, "home/settings.html", {})

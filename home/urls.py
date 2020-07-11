@@ -10,5 +10,5 @@ urlpatterns = [
     path('store/', views.store, name = 'store'),
     path('drivein/', views.drivein, name='drive-in'),
     path('questions/', views.questions, name='question and answers'),
-
+    path('settings/', views.settings, name='settings')
 ]
