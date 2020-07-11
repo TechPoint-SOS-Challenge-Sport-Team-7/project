@@ -18,3 +18,6 @@ def calendar(response):
 
 def store(response):
     return render(response, "home/store.html", {})
+
+def drivein(response):
+    return render(response, "home/drivein.html", {})

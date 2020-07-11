@@ -8,4 +8,6 @@ urlpatterns = [
     path('videos/', views.videos, name = 'videos'),
     path('calendar/', views.calendar, name = 'calendar'),
     path('store/', views.store, name = 'store'),
+    path('drivein/', views.drivein, name='drive-in'),
+
 ]
