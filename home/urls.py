@@ -9,5 +9,6 @@ urlpatterns = [
     path('calendar/', views.calendar, name = 'calendar'),
     path('store/', views.store, name = 'store'),
     path('drivein/', views.drivein, name='drive-in'),
+    path('questions/', views.questions, name='question and answers'),
 
 ]

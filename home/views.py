@@ -21,3 +21,6 @@ def store(response):
 
 def drivein(response):
     return render(response, "home/drivein.html", {})
+
+def questions(response):
+    return render(response, "home/questions.html", {})
