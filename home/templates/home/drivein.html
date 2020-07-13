@@ -1,9 +1,34 @@
 {% extends 'home/base.html' %}
 {% load static %}
-{% block title %} Calendar {% endblock %}
-{% block content %} <h1> Drive-In Page  </h1>
-<body>
-<img src="{% static 'home/images/parking.png' %}">
-</body>
+{% block title %} Drive-In {% endblock %}
+{% block content %}
+<img src="{% static 'home/images/drivein.png' %}" width="1000" height="400">
+
+ <h2>Sign up</h2>
+
+
+<form method="POST" action = "ACTION_OR_VIEW_URL_ON_SUBMIT_HERE">{% csrf_token %}
+    <label for="colorSelect">Choose The Movie</label>
+    <select type="text" id="colorSelect" name="colorSelect">
+        <option selected>select</option>
+        <option>BLUE</option>
+        <option>RED</option>
+        <option>ORANGE</option>
+        <option>BLACK</option>
+    </select>
+    <br><br>
+</form>
+<form method="POST" action = "ACTION_OR_VIEW_URL_ON_SUBMIT_HERE">{% csrf_token %}
+    <label for="colorSelect">Choose The Section</label>
+    <select type="text" id="colorSelect" name="colorSelect">
+        <option selected>select</option>
+        <option>BLUE</option>
+        <option>RED</option>
+        <option>ORANGE</option>
+        <option>BLACK</option>
+    </select>
+    <br><br>
+    <input type="submit" value="Sign up!"/>
+</form>
 
 {% endblock %}
