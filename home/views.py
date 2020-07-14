@@ -27,3 +27,14 @@ def questions(response):
 
 def settings(response):
     return render(response, "home/settings.html", {})
+
+def confirmation(response):
+    if (response.POST):
+        login_data = response.POST.dict()
+        movie = login_data.get("movieSelect")
+        lot = login_data.get("lotSelect")
+        print(movie, lot)
+        context = {'movie': movie, 'lot': lot}
+        return render(response, "home/confirmation.html", context)
+    else:
+        return render(response, "base.html")
