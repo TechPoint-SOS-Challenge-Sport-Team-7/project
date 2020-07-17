@@ -1,3 +1,13 @@
 {% extends 'home/base.html' %}
+{% load static %}
 {% block title %} Home {% endblock %} 
-{% block content %} <h1> Home Page  </h1> {% endblock %} 
+{% block content %}
+
+<body>
+<img src="{% static 'home/images/home_logo.png' %}" width="1100" height="300" >
+<a class="twitter-timeline" data-lang="en" data-width="500" data-height="1000" data-theme="light" href="https://twitter.com/Colts?ref_src=twsrc%5Etfw">Tweets by Colts</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</body>
+
+
+
+{% endblock %}

@@ -34,7 +34,10 @@ def confirmation(response):
         movie = login_data.get("movieSelect")
         lot = login_data.get("lotSelect")
         print(movie, lot)
-        context = {'movie': movie, 'lot': lot}
-        return render(response, "home/confirmation.html", context)
+        if movie == 'select' or lot == 'select':
+            return HttpResponse('Not enough information. Go back and make sure all fields are filled out!')
+        else:
+            context = {'movie': movie, 'lot': lot}
+            return render(response, "home/confirmation.html", context)
     else:
         return render(response, "base.html")
