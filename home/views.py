@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, render, _get_queryset
-from .models import Information
+from .models import MovieInfo
 
 
 def home(response):
@@ -20,7 +20,8 @@ def store(response):
     return render(response, "home/store.html", {})
 
 def drivein(response):
-    return render(response, "home/drivein.html", {})
+    all_movies = MovieInfo.objects.all()
+    return render(response, "home/drivein.html", {'Movies': all_movies})
 
 def questions(response):
     return render(response, "home/questions.html", {})
