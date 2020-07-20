@@ -1,3 +1,28 @@
 {% extends 'home/base.html' %}
 {% block title %} Roster {% endblock %} 
-{% block content %} <h1> Team/Roster Page  </h1> {% endblock %} 
+{% block content %} 
+<h1> Team Page  </h1> 
+<body>
+    <p>
+        <h3>Roster: </h3>
+        <h4>Player # | Position | College | Height | Weight</h4>
+        <form method="POST", action="">
+            {% csrf_token %}
+            <button type="submit", name="update", value="update">Save</button> 
+                {% for player in roster %}
+                {% for follower in follows %}
+                {% if follower.username == player.username and follower.following == True %}
+                    <li>
+                        {{player.name}} ({{player.username}}) {{player.number}} | {{player.position}} | {{player.college}} | {{player.height}} | {{player.weight}}  <input type="checkbox", value="{{player.username}}", name="{{player.username}}" checked>
+                    </li>
+                {% elif follower.username == player.username and follower.following == False %}
+                    <li>
+                        {{player.name}} ({{player.username}}) {{player.number}} | {{player.position}} | {{player.college}} | {{player.height}} | {{player.weight}}  <input type="checkbox", value="{{player.username}}", name="{{player.username}}">
+                    </li>
+                {%endif%}
+                {% endfor %}
+                {% endfor %}
+            </form>
+    </p>
+</body>
+{% endblock %} 

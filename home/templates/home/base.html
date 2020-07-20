@@ -17,7 +17,7 @@
             Left:0;
             background-color: 	#002c5f;
             overflow-x: hidden;
-            padding-top: 20px;
+            padding-top: 10px;
         }        
         .sidebar a {
             padding: 6px 8px 6px 16px;
@@ -40,8 +40,15 @@
         }
         
         .main{
-            margin-left: 140px;
-            padding: 0px 10px;
+            margin-left: -160px;
+            padding: 0px 5px;
+        }
+        .following{
+            margin-left: 700px;
+            display: inline-block;
+        }
+        .center {
+            margin-left: 200px;
         }
         </style>
         <!--BOOTSTRAP INFORMATION-->
@@ -61,13 +68,19 @@
             <a href="/fan/videos">Videos</a>
             <a href="/fan/calendar">Calendar</a>
             <a href="/fan/store">Store</a>
+            <a href="/logout">Log out</a>
         </div>
         <div class="main", id="test", name="test">
               <div class="row justify-content-center">
-                  <div class="col-8">'
+                  <div class="col-8">
+                      <h1> Welcome {{person}}!</h1>
+                      {% if user.is_authenticated %}
                         {% block content %} 
                         <h1> Base Template </h1>
                         {% endblock %} 
+                        {% else %}
+                        <p>You aren't currently logged in. Log in <a href="/login">here. </a></p>
+                        {% endif %}
                   </div>
               </div>
         </div>
