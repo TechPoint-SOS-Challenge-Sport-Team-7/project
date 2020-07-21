@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'crispy_forms',
+    'stream_django',
 ]
 
 
@@ -113,3 +114,10 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 CRISPY_TEMPLATE_PACK="bootstrap4"
+
+LOGIN_REDIRECT_URL = "/fan"
+LOGOUT_REDIRECT_URL = "/login"
+
+STREAM_API_KEY = 'y8t5jmbpbdxf'
+
+STREAM_API_SECRET = '5nntce5eyj8f8wz3j9mvuw4u5usvuuka6hekw4vwcgcyn69sv5w44u39myd9sck7'

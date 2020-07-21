@@ -1,4 +1,9 @@
 admin [
     username = admin
     password = sports7
+
+    example player:
+    username = thilton13
+    password = gocoltsgo13
 ]
+source /Users/jbuchanan/TechPoint/env/bin/activate

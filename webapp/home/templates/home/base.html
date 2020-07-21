@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{%load static %}
 <html>
     <head> 
         <div id = "title", name="title"> 
@@ -17,7 +18,7 @@
             Left:0;
             background-color: 	#002c5f;
             overflow-x: hidden;
-            padding-top: 20px;
+            padding-top: 10px;
         }        
         .sidebar a {
             padding: 6px 8px 6px 16px;
@@ -40,8 +41,42 @@
         }
         
         .main{
-            margin-left: 140px;
-            padding: 0px 10px;
+            margin-left: -160px;
+            padding: 0px 5px;
+        }
+        .following{
+            margin-left: 700px;
+            display: inline-block;
+        }
+        .center {
+            margin-left: 200px;
+        }
+        .splitscreen {
+            display:flex;
+        }
+        .splitscreen .left {
+            flex: 1;
+        }
+        .splitscreen .right {
+            flex: 1;
+        }
+        h3 {
+            text-align: center;
+        }
+        mverticalcenter {
+            display: table-cell;
+            height: 400px;
+            vertical-align: middle;
+        }
+        center{
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 50%;
+        }
+        img {
+            display: block;
+            margin: 0 auto;
         }
         </style>
         <!--BOOTSTRAP INFORMATION-->
@@ -56,18 +91,28 @@
     </head>
     <body>
         <div class="sidebar">
+            <img src="{% static 'home/images/coltlogo2.png' %}" width="50" height="50" >
             <a href="/fan">Home</a>
             <a href="/fan/roster">Roster</a>
             <a href="/fan/videos">Videos</a>
             <a href="/fan/calendar">Calendar</a>
             <a href="/fan/store">Store</a>
+            <a href="/fan/drivein">Drive-In</a>
+            <a href="/fan/questions">Q&A</a>
+            <a href="/fan/settings">Settings</a>
+            <a href="/logout">Log out</a>
         </div>
         <div class="main", id="test", name="test">
               <div class="row justify-content-center">
-                  <div class="col-8">'
+                  <div class="col-8">
+                      <h1> Welcome {{person}}!</h1>
+                      {% if user.is_authenticated %}
                         {% block content %} 
                         <h1> Base Template </h1>
                         {% endblock %} 
+                        {% else %}
+                        <p>You aren't currently logged in. Log in <a href="/login">here. </a></p>
+                        {% endif %}
                   </div>
               </div>
         </div>

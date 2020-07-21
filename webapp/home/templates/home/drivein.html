@@ -1,0 +1,32 @@
+{% extends 'home/base.html' %}
+{% load static %}
+{% block title %} Drive-In {% endblock %}
+{% block content %}
+<img src="{% static 'home/images/drivein.png' %}" width="1000" height="400" >
+
+<h2>Sign up</h2>
+
+<form method="POST" action = "confirmation">{% csrf_token %}
+    <label for="movieSelect">Choose The Movie</label>
+    <select type="text" id="movieSelect" name="movieSelect">
+        <option selected>select</option>
+        <option>The Incredibles 8/30 </option>
+        <option>Facing the Giants 9/6 </option>
+        <option>Scoob! 8/13 </option>
+        <option>Jumanji! Next Level 8/20 </option>
+    </select>
+    <br><br>
+    <label for="lotSelect">Choose The Section</label>
+    <select type="text" id="lotSelect" name="lotSelect">
+        <option selected>select</option>
+        <option>Inside Lucas Oil</option>
+        <option>Parking Lot A</option>
+        <option>Parking Lot B</option>
+        <option>Parking Lot C</option>
+        <option>Parking Lot D</option>
+    </select>
+    <br><br>
+    <input type="submit" value="Sign up!"/>
+</form>
+
+{% endblock %}
