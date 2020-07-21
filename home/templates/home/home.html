@@ -1,11 +1,18 @@
 {% extends 'home/base.html' %}
-{% block title %} Home {% endblock %} 
+{% load static %}
+{% block title %} Home {% endblock %}
 {% block content %} 
+{% if show %}
 <h2> Post a question! </h2> 
     <b>
         <form method="post" action="">
             {% csrf_token %}
-            Player(Search by username will be making this a dropdown list of followers later): <input type="text", name="player">
+            Player:
+            <select name="player", id='player'> 
+                {% for player in following %}
+                <option value = '{{player.username}}'> {{player.playerName}} </option>
+                {% endfor %}
+            </select>
             Question: <input type="text", name="message">
             <button type="submit", name="new", value="new">Post</button>
         </form>
@@ -13,16 +20,19 @@
         <h3> Unanswered Questions</h3>
         <ul> 
         {% for item in feed %}
-        <li>Question for <u>{{item.player}}</u> | "{{item.message}}" posted by <em>{{item.author}}</em></li>
+        <li>Question for <u>{{item.playerName}}</u> | "{{item.message}}" posted by <em>{{item.author}}</em></li>
         {% endfor %}
         </ul>
 
         <h3> Answered Questions</h3>
         <ul> 
         {% for item in feed2 %}
-            <li><u>{{item.player}}</u> answered "{{item.message}}" posted by <em>{{item.author}} |||| {{item.response}}</em></li>
+            <li><u>{{item.playerName}}</u> answered "{{item.message}}" posted by <em>{{item.author}} |||| {{item.response}}</em></li>
         {% endfor %}
         </ul>
        </p>
     </b> 
+{% else %}
+<h2> <a href="/fan/roster"> Click here to go to the Team Tab to follow a player!</href></h2>
+{% endif %}
 {% endblock %} 
