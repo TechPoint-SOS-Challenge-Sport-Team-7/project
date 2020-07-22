@@ -7,8 +7,21 @@
 <h3> Ticket Confirmation </h3>
 <h3> Movie: {{movie}} </h3>
 <h3> Location: {{lot}} </h3>
+<h3> Number of Tickets: </h3>
+{% if adult != '0' %}
+<h3>Adult: {{ adult }}</h3>
+{% endif %}
+{% if child != '0' %}
+<h3>Child: {{ child }}</h3>
+{% endif %}
+{% if senior != '0' %}
+<h3>Senior: {{ senior }}</h3>
+{% endif %}
+{% if car != '0' %}
+<h3>Car: {{ car }}</h3>
+{% endif %}
 
-<img src="{% static 'home/images/qr_code.png' %}" width="400" height="400" >
+<img src="{% static 'home/images/qr_code.png' %}" width="300" height="300" >
 
 </body>
 

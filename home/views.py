@@ -123,6 +123,10 @@ def store(request):
     return render(request, "home/store.html", {"person": request.user.get_username()})
 
 
+def settings(request):
+    return render(request, "home/settings.html", {"person": request.user.get_username()})
+
+
 def following(request):
     pass
 
@@ -139,11 +143,17 @@ def confirmation(response):
         login_data = response.POST.dict()
         movie = login_data.get("movieSelect")
         lot = login_data.get("lotSelect")
+        adult = login_data.get("adultTickets")
+        child = login_data.get("childTickets")
+        senior = login_data.get("seniorTickets")
+        car = login_data.get("carTickets")
         print(movie, lot)
         if movie == 'select' or lot == 'select':
             return HttpResponse('Not enough information. Go back and make sure all fields are filled out!')
+        elif adult == child == senior == car == '0':
+            return HttpResponse('Not enough information. Go back and make sure all fields are filled out!')
         else:
-            context = {'movie': movie, 'lot': lot}
+            context = {'movie': movie, 'lot': lot, 'adult': adult, 'child': child, 'senior': senior, 'car': car}
             return render(response, "home/confirmation.html", context)
     else:
         return render(response, "base.html")
