@@ -1,6 +1,8 @@
 from django.urls import path, re_path
 from django.contrib.auth.decorators import login_required
 from . import views
+from .views import videos
+
 
 urlpatterns = [
     path('', views.home, name = 'home'),

@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, render, _get_queryset
 from django.views.generic.edit import CreateView
-from .models import Question, Player, AnsweredQuestions, UserFollowing, MovieInfo
+from .models import Question, Player, AnsweredQuestions, UserFollowing, MovieInfo, Item
 from django.contrib.auth.models import User
 from django.core.exceptions import ObjectDoesNotExist
 
@@ -112,7 +112,8 @@ def roster(request):
     
 
 def videos(request):
-    return render(request, "home/videos.html", {"person": request.user.get_username()})
+    obj=Item.objects.all()
+    return render(request, "home/videos.html", {"person": request.user.get_username(), 'obj': obj})
 
 
 def calendar(request):
@@ -130,8 +131,6 @@ def settings(request):
 def following(request):
     pass
 
-def store(response):
-    return render(response, "home/store.html", {})
 
 def drivein(response):
     all_movies = MovieInfo.objects.all()
