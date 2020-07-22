@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{%load static %}
 <html>
     <head> 
         <div id = "title", name="title"> 
@@ -17,7 +18,7 @@
             Left:0;
             background-color: 	#002c5f;
             overflow-x: hidden;
-            padding-top: 20px;
+            padding-top: 10px;
         }        
         .sidebar a {
             padding: 6px 8px 6px 16px;
@@ -39,9 +40,6 @@
             background-color: whitesmoke;
         }
 
-        .main {
-            padding: 0px 5px;
-
         .main{
             margin-left: -160px;
             padding: 0px 5px;
@@ -52,6 +50,15 @@
         }
         .center {
             margin-left: 200px;
+        }
+        .splitscreen {
+            display:flex;
+        }
+        .splitscreen .left {
+            flex: 1;
+        }
+        .splitscreen .right {
+            flex: 1;
         }
         h3 {
             text-align: center;
@@ -84,17 +91,16 @@
     </head>
     <body>
         <div class="sidebar">
+            <img src="{% static 'home/images/coltlogo2.png' %}" width="50" height="50" >
             <a href="/fan">Home</a>
             <a href="/fan/roster">Roster</a>
             <a href="/fan/drivein">Drive-In</a>
             <a href="/fan/videos">Videos</a>
             <a href="/fan/calendar">Calendar</a>
             <a href="/fan/store">Store</a>
+            <a href="/fan/questions">Q&A</a>
+            <a href="/fan/settings">Settings</a>
             <a href="/logout">Log out</a>
-
-
-
-
         </div>
         <div class="main", id="test", name="test">
               <div class="row justify-content-center">

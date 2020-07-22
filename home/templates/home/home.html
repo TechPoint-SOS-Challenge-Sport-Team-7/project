@@ -2,40 +2,37 @@
 {% load static %}
 {% block title %} Home {% endblock %}
 {% block content %}
-
-<body>
-<img src="{% static 'home/images/home_logo.png' %}" width="1100" height="300" >
-</body>
-
-<h2> Post a question! </h2>
+{% if show %}
+<h2> Post a question! </h2> 
     <b>
-        <form method="POST" action = "">{% csrf_token %}
-            <label for="playerSelect">Choose The Player</label>
-            <select type="text" id="playerSelect" name="playerSelect">
-                <option selected>select</option>
-                {% for player in all_players %}
-                    <option>{{ player.name }}</option>
+        <form method="post" action="">
+            {% csrf_token %}
+            Player:
+            <select name="player", id='player'>
+                {% for player in following %}
+                <option value = '{{player.username}}'> {{player.playerName}} </option>
                 {% endfor %}
             </select>
-            <br><br>
-
             Question: <input type="text", name="message">
             <button type="submit", name="new", value="new">Post</button>
         </form>
         <p>
         <h3> Unanswered Questions</h3>
-        <ul>
+        <ul> 
         {% for item in feed %}
-        <li>Question for <u>{{item.player}}</u> | "{{item.message}}" posted by <em>{{item.author}}</em></li>
+        <li>Question for <u>{{item.playerName}}</u> | "{{item.message}}" posted by <em>{{item.author}}</em></li>
         {% endfor %}
         </ul>
 
         <h3> Answered Questions</h3>
-        <ul>
+        <ul> 
         {% for item in feed2 %}
-            <li><u>{{item.player}}</u> answered "{{item.message}}" posted by <em>{{item.author}} |||| {{item.response}}</em></li>
+            <li><u>{{item.playerName}}</u> answered "{{item.message}}" posted by <em>{{item.author}} |||| {{item.response}}</em></li>
         {% endfor %}
         </ul>
        </p>
-    </b>
+    </b> 
+{% else %}
+<h2> <a href="/fan/roster"> Click here to go to the Team Tab to follow a player!</href></h2>
+{% endif %}
 {% endblock %}

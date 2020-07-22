@@ -1,3 +1,92 @@
+<!DOCTYPE html>
 <html>
-<a href = "/fan"> click me to test your stuff, going to build out an intro screen that takes you too a login in screen soon</a>
+    <head> 
+        <div id = "title", name="title"> 
+            
+            <title> {% block title %} Ultra Fan {% endblock %} </title>
+        
+        </div>
+        <style type="text/css"> 
+        .sidebar {
+            height: 100%;
+            width: 130px;
+            align-self: center;
+            position: fixed;
+            z-index:1;
+            top:0;
+            Left:0;
+            background-color: 	#002c5f;
+            overflow-x: hidden;
+            padding-top: 10px;
+        }        
+        .sidebar a {
+            padding: 6px 8px 6px 16px;
+            text-decoration: none;
+            font-size: 25px;
+            color: whitesmoke;
+            display: block;
+        }
+
+        .sidebar a:hover{
+            color: #002c5f;
+            background-size: cover;
+            background-color: whitesmoke;
+        }
+
+        .sidebar a:focus{
+            color: #002c5f;
+            background-size: cover;
+            background-color: whitesmoke;
+        }
+        
+        .main{
+            margin-left: -160px;
+            padding: 0px 5px;
+        }
+        .following{
+            margin-left: 700px;
+            display: inline-block;
+        }
+        .center {
+            margin-left: 200px;
+        }
+        .splitscreen {
+            display:flex;
+        }
+        .splitscreen .left {
+            flex: 1;
+        }
+        .splitscreen .right {
+            flex: 1;
+        }
+        h3 {
+            text-align: center;
+        }
+        mverticalcenter {
+            display: table-cell;
+            height: 400px;
+            vertical-align: middle;
+        }
+        center{
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 50%;
+        }
+        img {
+            display: block;
+            margin: 0 auto;
+        }
+        </style>
+        <!--BOOTSTRAP INFORMATION-->
+        <!-- PUT THIS STUFF HERE IN HEAD THEN PUT <!DOCTYPE HTML> ABOVE -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+        <!--END OF BOOTSTRAP HTML-->
+    </head>
+<a href = "/login"> Let's Go</a>
 </html>
