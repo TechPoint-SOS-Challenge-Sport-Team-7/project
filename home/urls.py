@@ -12,5 +12,8 @@ urlpatterns = [
     path('store/', views.store, name = 'store'),
     path('drivein/', views.drivein, name='drive-in'),
     path('drivein/confirmation', views.confirmation, name='confirmation'),
-    path('settings/', views.settings, name='settings')
+    path('settings/', views.settings, name='settings'),
+    path('error/', views.error, name='error'),
+    path('about/', views.about, name='about')
+
 ]

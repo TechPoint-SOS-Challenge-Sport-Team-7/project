@@ -147,12 +147,21 @@ def confirmation(response):
         senior = login_data.get("seniorTickets")
         car = login_data.get("carTickets")
         print(movie, lot)
+        total = 10 * int(adult) + 5 * int(child) + 8 * int(senior) + 40 * int(car)
         if movie == 'select' or lot == 'select':
             return HttpResponse('Not enough information. Go back and make sure all fields are filled out!')
         elif adult == child == senior == car == '0':
             return HttpResponse('Not enough information. Go back and make sure all fields are filled out!')
         else:
-            context = {'movie': movie, 'lot': lot, 'adult': adult, 'child': child, 'senior': senior, 'car': car}
+            context = {'movie': movie, 'lot': lot, 'adult': adult, 'child': child, 'senior': senior, 'car': car, 'total': total}
             return render(response, "home/confirmation.html", context)
     else:
         return render(response, "base.html")
+
+
+def about(request):
+    return render(request, "home/about.html", {"person": request.user.get_username()})
+
+
+def error(request):
+    return render(request, "home/error.html", {"person": request.user.get_username()})
