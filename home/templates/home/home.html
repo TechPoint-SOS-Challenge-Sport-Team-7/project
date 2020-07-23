@@ -1,14 +1,14 @@
 {% extends 'home/base.html' %}
 {% load static %}
 {% block title %} Home {% endblock %}
-{% block content %} 
+{% block content %}
 {% if show %}
 <h2> Post a question! </h2> 
     <b>
         <form method="post" action="">
             {% csrf_token %}
             Player:
-            <select name="player", id='player'> 
+            <select name="player", id='player'>
                 {% for player in following %}
                 <option value = '{{player.username}}'> {{player.playerName}} </option>
                 {% endfor %}
@@ -35,4 +35,4 @@
 {% else %}
 <h2> <a href="/fan/roster"> Click here to go to the Team Tab to follow a player!</href></h2>
 {% endif %}
-{% endblock %} 
+{% endblock %}

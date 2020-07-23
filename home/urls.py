@@ -1,6 +1,8 @@
 from django.urls import path, re_path
 from django.contrib.auth.decorators import login_required
 from . import views
+from .views import videos
+
 
 urlpatterns = [
     path('', views.home, name = 'home'),
@@ -9,7 +11,6 @@ urlpatterns = [
     path('calendar/', views.calendar, name = 'calendar'),
     path('store/', views.store, name = 'store'),
     path('drivein/', views.drivein, name='drive-in'),
-    path('questions/', views.questions, name='question and answers'),
-    path('settings/', views.settings, name='settings'),
-    path('drivein/confirmation', views.confirmation, name='confirmation')
+    path('drivein/confirmation', views.confirmation, name='confirmation'),
+    path('settings/', views.settings, name='settings')
 ]

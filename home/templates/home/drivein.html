@@ -2,7 +2,7 @@
 {% load static %}
 {% block title %} Drive-In {% endblock %}
 {% block content %}
-<img src="{% static 'home/images/drivein.png' %}" width="1000" height="400" >
+<img src="{% static 'home/images/drive_in.png' %}" width="1000" height="400" >
 
 <h2>Sign up</h2>
 
@@ -10,10 +10,9 @@
     <label for="movieSelect">Choose The Movie</label>
     <select type="text" id="movieSelect" name="movieSelect">
         <option selected>select</option>
-        <option>The Incredibles 8/30 </option>
-        <option>Facing the Giants 9/6 </option>
-        <option>Scoob! 8/13 </option>
-        <option>Jumanji! Next Level 8/20 </option>
+        {% for movie in Movies %}
+        <option>{{ movie.title }}</option>
+        {% endfor %}
     </select>
     <br><br>
     <label for="lotSelect">Choose The Section</label>
@@ -26,6 +25,42 @@
         <option>Parking Lot D</option>
     </select>
     <br><br>
+        <label for="adultTickets">Choose Your Tickets: Adult </label>
+    <select type="text" id="adultTickets" name="adultTickets">
+        <option selected>0</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+    </select>
+            <label for="childTickets">Child</label>
+    <select type="text" id="childTickets" name="childTickets">
+        <option selected>0</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+    </select>
+                <label for="seniorTickets">Senior</label>
+    <select type="text" id="seniorTickets" name="seniorTickets">
+        <option selected>0</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+    </select>
+                <label for="carTickets">Car</label>
+    <select type="text" id="carTickets" name="carTickets">
+        <option selected>0</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+    </select>
+    <br><br>
+
+
+
     <input type="submit" value="Sign up!"/>
 </form>
 
