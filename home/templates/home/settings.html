@@ -1,3 +1,56 @@
 {% extends 'home/base.html' %}
+{% load static %}
 {% block title %} Videos {% endblock %}
-{% block content %} <h1> Settings Page  </h1> {% endblock %}
+{% block content %} <h1> Settings Page  </h1>
+<br>
+<br>
+<p style="margin-left: 3em">
+
+<img align="left" src="{% static 'home/images/accountinfo.png' %}" width="60" height="60" >
+</p>
+<h2>
+    &nbsp; <a href="/fan/error">Account</a>
+</h2>
+<br>
+<br>
+
+<p style="margin-left:3em">
+
+<img align="left" src="{% static 'home/images/notif.png' %}" width="60" height="60" >
+</p>
+<h2>
+    &nbsp; <a href="/fan/error">Notifications</a>
+
+</h2>
+<br>
+<br>
+
+<p style="margin-left:3em">
+
+<img align="left" src="{% static 'home/images/support.png' %}" width="60" height="60" >
+</p>
+<h2>
+    &nbsp; <a href="/fan/error">Support</a>
+</h2>
+<br>
+<br>
+<p style="margin-left:3em">
+<img align="left" src="{% static 'home/images/about.png' %}" width="60" height="60" >
+</p>
+<h2>
+    &nbsp; <a href="/fan/error">About</a>
+</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
+
