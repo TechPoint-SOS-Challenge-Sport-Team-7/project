@@ -30,6 +30,7 @@ def home(request):
                             pk = 1
                             for item in feed:
                                 if item.message == qu:
+                                    print(item.pk)
                                     pk = item.pk
                             question = Question.objects.get(pk=pk)
                             player = players.get(username=author)

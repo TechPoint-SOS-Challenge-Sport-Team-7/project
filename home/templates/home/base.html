@@ -78,6 +78,18 @@
             display: block;
             margin: 0 auto;
         }
+        .sidebar2 {
+            height: 100%;
+            width: 130px;
+            align-self: center;
+            position: fixed;
+            z-index: 1;
+            top:0;
+            right:0;
+            background-color: 	#002c5f;
+            overflow-x: hidden;
+            padding-top: 0px;
+        } 
         </style>
         <!--BOOTSTRAP INFORMATION-->
         <!-- PUT THIS STUFF HERE IN HEAD THEN PUT <!DOCTYPE HTML> ABOVE -->
@@ -90,6 +102,7 @@
         <!--END OF BOOTSTRAP HTML-->
     </head>
     <body>
+        <div class="sidebar2"></div>
         <div class="sidebar">
             <img src="{% static 'home/images/coltlogo2.png' %}" width="50" height="50" >
             <a href="/fan">Home</a>
