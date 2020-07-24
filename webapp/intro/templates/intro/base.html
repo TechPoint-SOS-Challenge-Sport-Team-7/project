@@ -1,83 +1,8 @@
+{% load crispy_forms_tags %}
+{%load static %}
 <!DOCTYPE html>
-<html>
-    <head> 
-        <div id = "title", name="title"> 
-            
-            <title> {% block title %} Ultra Fan {% endblock %} </title>
-        
-        </div>
-        <style type="text/css"> 
-        .sidebar {
-            height: 100%;
-            width: 130px;
-            align-self: center;
-            position: fixed;
-            z-index:1;
-            top:0;
-            Left:0;
-            background-color: 	#002c5f;
-            overflow-x: hidden;
-            padding-top: 10px;
-        }        
-        .sidebar a {
-            padding: 6px 8px 6px 16px;
-            text-decoration: none;
-            font-size: 25px;
-            color: whitesmoke;
-            display: block;
-        }
-
-        .sidebar a:hover{
-            color: #002c5f;
-            background-size: cover;
-            background-color: whitesmoke;
-        }
-
-        .sidebar a:focus{
-            color: #002c5f;
-            background-size: cover;
-            background-color: whitesmoke;
-        }
-        
-        .main{
-            margin-left: -160px;
-            padding: 0px 5px;
-        }
-        .following{
-            margin-left: 700px;
-            display: inline-block;
-        }
-        .center {
-            margin-left: 200px;
-        }
-        .splitscreen {
-            display:flex;
-        }
-        .splitscreen .left {
-            flex: 1;
-        }
-        .splitscreen .right {
-            flex: 1;
-        }
-        h3 {
-            text-align: center;
-        }
-        mverticalcenter {
-            display: table-cell;
-            height: 400px;
-            vertical-align: middle;
-        }
-        center{
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-            width: 50%;
-        }
-        img {
-            display: block;
-            margin: 0 auto;
-        }
-        </style>
+<htmnl>
+    <head>
         <!--BOOTSTRAP INFORMATION-->
         <!-- PUT THIS STUFF HERE IN HEAD THEN PUT <!DOCTYPE HTML> ABOVE -->
         <meta charset="utf-8">
@@ -87,6 +12,154 @@
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
         <!--END OF BOOTSTRAP HTML-->
+        <title>NFL For You</title>
+        <style type="text/css">
+            .first-info{
+                background-image: url("{% static '/intro/images/hearme.jpg' %}");
+                background-repeat: no-repeat;
+                background-size: 100%;
+                min-width: 1024px;
+                min-height: 100%;
+                width: 100%;
+                height: auto;
+                position: absolute;
+                top:0;
+                left: 0;
+                scroll-behavior: auto;
+            }
+            body {
+            background-repeat:no-repeat;
+            background-size:100%;
+            display: flex;
+            align-items: center;
+            padding-top: 40px;
+            padding-bottom: 40px;
+            position: relative;
+            }
+            form {
+            display: inline-block;
+            }
+            .form-signin {
+            width: 100%;
+            max-width: 330px;
+            padding: 15px;
+            margin: auto;
+            }
+            .form-signin .checkbox {
+            font-weight: 400;
+            }
+            .form-signin .form-control {
+            position: relative;
+            box-sizing: border-box;
+            height: auto;
+            padding: 10px;
+            font-size: 16px;
+            }
+            .form-signin .form-control:focus {
+            z-index: 2;
+            }
+            .form-signin input[type="email"] {
+            margin-bottom: -1px;
+            border-bottom-right-radius: 0;
+            border-bottom-left-radius: 0;
+            }
+            .form-signin input[type="password"] {
+            margin-bottom: 10px;
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+            }
+            h1{
+                text-align: center;
+            }
+            .center{
+            text-align: center;
+            padding: 15px;
+            }
+            .main {
+                margin-left: 150px;
+                margin-top: 75px;
+                margin-bottom: 100%;
+                background-color: whitesmoke;
+                padding: 25px;
+                opacity: .90;
+                width: 600px;
+                height: 450px;
+                border-radius: 25px;
+            }
+            .main2 {
+                margin-left: 150px;
+                margin-top: 25px;
+                background-color: whitesmoke;
+                padding: 10px;
+                opacity: 1;
+                width: 425px;
+                height: 325px;
+                border-radius: 25px;
+                display: inline-block;
+                vertical-align: middle;
+                z-index: -1;
+            }
+            .sidebar {
+            height: 100%;
+            width: 130px;
+            align-self: center;
+            position: fixed;
+            z-index:1;
+            top:0;
+            Left:0;
+            background-color: 	#002c5f;
+            overflow-x: hidden;
+            padding-top: 0px;
+        }  
+        h2{
+            text-align: center;
+        }
+        .myGall{
+            vertical-align: middle;
+        }
+        .sidebar2 {
+            height: 100%;
+            width: 130px;
+            align-self: center;
+            position: fixed;
+            z-index: 1;
+            top:0;
+            right:0;
+            background-color: 	#002c5f;
+            overflow-x: hidden;
+            padding-top: 0px;
+        } 
+        .quote{
+            color: whitesmoke;
+            right: 200;
+            top: 100;
+            position: sticky;
+            z-index: 3;
+        }
+        </style>
     </head>
-<a href = "/login"> Let's Go</a>
-</html>
+    <div class = "first-info">
+    <body>
+        <div class = "main2">
+        <img src="{% static 'intro/images/nfl4ulogo.jpg' %}" width="400" height="300" >
+         </div>
+    </body>
+    <body>
+        <div class='main'>
+        <h1><b>Welcome To <u>NFL For You</u>!</b></h1>
+        <h2><i>The ULTIMATE fan experience.</i></h2>
+        <hr style="color:#002c5f; width: 100%; background-color: #002c5f; height: 2px; opacity: .7;">
+        <h3 style="text-align: center;">What do you get?</h3>
+        <ul class="list-group list-group-flush" style="text-align: center;">
+            <li class="list-group-item" style="padding:10px"> 🏈 Engage in conversation with your favorite player! </li>
+            <li class="list-group-item" style="padding:10px"> 🏈 Watch movies at Lucas Oil Stadium with Colt players! </li>
+            <li class="list-group-item" style="padding:10px"> 🏈  Get the most up to date videos from the Colts Team! </li>
+            <li class="list-group-item" style="padding:10px"> 🏈  Become the ULTIMATE fan while staying safe! </li>
+          </ul>
+        <div class="center">
+        <button class="btn btn-primary" style="height: 40px; width: 300px;" onclick="window.location.href='/login'"> <b>Start your experience!</b> </button>
+        </div>
+        </div>
+    </body>
+</div>
+</htmnl>

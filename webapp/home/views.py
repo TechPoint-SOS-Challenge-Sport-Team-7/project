@@ -1,10 +1,9 @@
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, render, _get_queryset
 from django.views.generic.edit import CreateView
-from .models import Question, Player, AnsweredQuestions, UserFollowing
+from .models import Question, Player, AnsweredQuestions, UserFollowing, MovieInfo, Item
 from django.contrib.auth.models import User
 from django.core.exceptions import ObjectDoesNotExist
-
 
 
 def home(request):
@@ -13,7 +12,7 @@ def home(request):
     present1 = False
     players = Player.objects.all()
     feed = Question.objects.all()
-    feed2 = AnsweredQuestions.objects.all() 
+    feed2 = AnsweredQuestions.objects.all()
     for player in players:
         print("got here")
         if player.username == author:
@@ -31,6 +30,7 @@ def home(request):
                             pk = 1
                             for item in feed:
                                 if item.message == qu:
+                                    print(item.pk)
                                     pk = item.pk
                             question = Question.objects.get(pk=pk)
                             player = players.get(username=author)
@@ -49,22 +49,22 @@ def home(request):
     try:
         following = UserFollowing.objects.filter(author=request.user, following=True)
         if (following.count() == 0):
-            return render(request, "home/home.html", {"show": False})    
+            return render(request, "home/home.html", {"show": False, "person": author})
     except ObjectDoesNotExist:
             print('no objects found')
-            return render(request, "home/home.html", {"show": False})  
-    print("FAN VIEW1")       
+            return render(request, "home/home.html", {"show": False, "person": author})
+    print("FAN VIEW1")
     test = feed.filter(player="")
     test1 = feed2.filter(player="")
     for player in following:
         test = test | feed.filter(player=player.username)
         test1 = test1 | feed2.filter(player=player.username)
-        print("TEST: "+str(test)) 
-        if request.method == "POST":
-            target = players.get(username=request.POST.get('player'))
-            print(target)
-            form = Question(message=request.POST.get('message'), author=author, player=request.POST.get('player'), playerName=target.name, response='Unanswered', answered=False)
-            form.save()
+        print("TEST: "+str(test))
+    if request.method == "POST":
+        target = players.get(username=request.POST.get('player'))
+        print(target)
+        form = Question(message=request.POST.get('message'), author=author, player=request.POST.get('player'), playerName=target.name, response='Unanswered', answered=False)
+        form.save()
     return render(request, "home/home.html", {"feed": reversed(test), "person": author, "feed2": reversed(test1), "show": True, "following": following})
 
 
@@ -113,39 +113,57 @@ def roster(request):
     
 
 def videos(request):
-    return render(request, "home/videos.html", {"person": request.user.get_username()})
+    obj=Item.objects.all()
+    return render(request, "home/videos.html", {"person": request.user.get_username(), 'obj': obj})
+
 
 def calendar(request):
     return render(request, "home/calendar.html", {"person": request.user.get_username()})
 
+
 def store(request):
     return render(request, "home/store.html", {"person": request.user.get_username()})
+
+
+def settings(request):
+    return render(request, "home/settings.html", {"person": request.user.get_username(), "email": request.user.email})
+
 
 def following(request):
     pass
 
-def store(response):
-    return render(response, "home/store.html", {})
 
 def drivein(response):
-    return render(response, "home/drivein.html", {})
+    all_movies = MovieInfo.objects.all()
+    author = response.user.get_username()
+    return render(response, "home/drivein.html", {'Movies': all_movies, "person": author})
 
-def questions(response):
-    return render(response, "home/questions.html", {})
-
-def settings(response):
-    return render(response, "home/settings.html", {})
 
 def confirmation(response):
     if (response.POST):
         login_data = response.POST.dict()
         movie = login_data.get("movieSelect")
         lot = login_data.get("lotSelect")
+        adult = login_data.get("adultTickets")
+        child = login_data.get("childTickets")
+        senior = login_data.get("seniorTickets")
+        car = login_data.get("carTickets")
         print(movie, lot)
+        total = 10 * int(adult) + 5 * int(child) + 8 * int(senior) + 40 * int(car)
         if movie == 'select' or lot == 'select':
             return HttpResponse('Not enough information. Go back and make sure all fields are filled out!')
+        elif adult == child == senior == car == '0':
+            return HttpResponse('Not enough information. Go back and make sure all fields are filled out!')
         else:
-            context = {'movie': movie, 'lot': lot}
+            context = {'movie': movie, 'lot': lot, 'adult': adult, 'child': child, 'senior': senior, 'car': car, 'total': total}
             return render(response, "home/confirmation.html", context)
     else:
         return render(response, "base.html")
+
+
+def about(request):
+    return render(request, "home/about.html", {"person": request.user.get_username()})
+
+
+def error(request):
+    return render(request, "home/error.html", {"person": request.user.get_username()})

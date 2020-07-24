@@ -1,4 +1,96 @@
 {% extends 'home/base.html' %}
-{% block title %} Calendar {% endblock %}
-{% block content %} <h1> Settings  </h1>
+{% load static %}
+{% block title %} Settings {% endblock %}
+{% block content %} <h1> Settings Page  </h1>
+<hr style="color:#002c5f; width: 35%; background-color: #002c5f; height: 1px; opacity: 1; margin-left: 0px;">
+
+
+<body style="background-color: #F0F0F0">
+
+<br>
+<br>
+
+<div class="box3" align="left" >
+
+<p style="margin-left:3em">
+    <h2>
+    Account Information:
+</h2>
+    <br>
+    <h4>
+        Username: {{person}}
+        <br>
+        Password: ********
+        <br>
+        Email: {{email}}
+        <br>
+        Subscription: Full Package
+
+    </h4>
+
+</p>
+
+
+</div>
+<div class="box2" align="left">
+
+<p style="margin-left: 3em">
+
+<img align="left" src="{% static 'home/images/accountinfo.png' %}" width="60" height="60" >
+</p>
+<h2>
+    &nbsp; <a href="/fan/settings">Account</a>
+</h2>
+    </div>
+
+<div class="box2" align="left">
+
+<p style="margin-left:3em">
+
+<img align="left" src="{% static 'home/images/notif.png' %}" width="60" height="60" >
+</p>
+<h2>
+    &nbsp; <a href="/fan/error">Notifications</a>
+
+</h2>
+    </div>
+
+<div class="box2" align="left">
+
+
+<p style="margin-left:3em">
+
+<img align="left" src="{% static 'home/images/support.png' %}" width="60" height="60" >
+</p>
+<h2>
+    &nbsp; <a href="/fan/error">Support</a>
+</h2>
+    </div>
+
+<div class="box2" align="left">
+
+<p style="margin-left: 3em">
+
+<img align="left" src="{% static 'home/images/privacy.png' %}" width="60" height="60" >
+</p>
+<h2>
+    &nbsp; <a href="/fan/error">Privacy</a>
+</h2>
+    </div>
+
+<div class="box2" align="left">
+
+<p style="margin-left:3em">
+<img align="left" src="{% static 'home/images/about.png' %}" width="60" height="60" >
+</p>
+<h2>
+    &nbsp; <a href="/fan/about">About</a>
+</h2>
+
+</div>
+</body>
+
+
+
 {% endblock %}
+

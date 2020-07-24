@@ -1,9 +1,13 @@
 {% extends 'home/base.html' %}
+{% load static %}
 {% block title %} Calendar {% endblock %} 
-{% block content %} <h1> Upcoming Calendar  </h1>
+{% block content %}
+<body background="{% static 'home/images/lucasoil.png' %}" >
+
 
 <div class="clearfix">
-	<iframe src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%233F51B5&amp;ctz=America%2FNew_York&amp;src=Mjd2bWRhcjk1YXU1ZzRzNDFub3ZkcjU5OGdAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;color=%233F51B5&amp;showDate=1&amp;showCalendars=0&amp;showTabs=1&amp;title=Indiananpolis%20Colts" style="border:solid 1px #777" width="850" height="600" frameborder="0" scrolling="no"></iframe>
+	<iframe align="right" src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%233F51B5&amp;ctz=America%2FNew_York&amp;src=Mjd2bWRhcjk1YXU1ZzRzNDFub3ZkcjU5OGdAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;color=%233F51B5&amp;showDate=1&amp;showCalendars=0&amp;showTabs=1&amp;title=Indiananpolis%20Colts" style="border:solid 1px #777" width="950" height="650" frameborder="0" scrolling="no"></iframe>
 </div>
+</body>
 {{ calendar }}
 {% endblock %}

@@ -1,38 +1,60 @@
 {% extends 'home/base.html' %}
 {% load static %}
 {% block title %} Home {% endblock %}
-{% block content %} 
+{% block content %}
 {% if show %}
-<h2> Post a question! </h2> 
+
+<style type="text/css">
+    .pad{
+        padding: 20px;
+        width: 100%;
+        background: rgba(0, 44, 95, .9);
+        border-radius: 25px;
+    }
+</style>
+<h2> Post a question below! </h2> 
+<hr style="color:#002c5f; width: 35%; background-color: #002c5f; height: 1px; opacity: 1; margin-left: 0px;">
     <b>
-        <form method="post" action="">
+        <div style="margin-left: 180px;">
+        <form method="post" action="" class="pad">
             {% csrf_token %}
-            Player:
-            <select name="player", id='player'> 
+           <div style="color:white; text-align: center;"> <b>Select a player: </b>
+            <select name="player", id='player' style="height:40px">
                 {% for player in following %}
                 <option value = '{{player.username}}'> {{player.playerName}} </option>
                 {% endfor %}
             </select>
-            Question: <input type="text", name="message">
-            <button type="submit", name="new", value="new">Post</button>
+                <b> Type a question: </b> <input type="text", name="message", style="width: 400px; height: 38px;">
+            <button type="submit", name="new", value="new" class="btn btn-primary">Post</button>
         </form>
+        </div>
+        <div style="margin-left: 0px">
         <p>
-        <h3> Unanswered Questions</h3>
-        <ul> 
+        <h3 style="padding-left: 350px; padding-top: 15px;">Unanswered Questions</h3>
+        <hr style="color:#002c5f; width: 100%; background-color: #002c5f; height: 1px; opacity: 1; margin-left: 0px;">
+        <ul class="list-group list-group-flush" style="margin-left: 175px;"> 
         {% for item in feed %}
-        <li>Question for <u>{{item.playerName}}</u> | "{{item.message}}" posted by <em>{{item.author}}</em></li>
+        <li class="list-group-item" style="padding:10px; width: 75%;">Question for <u>{{item.playerName}}</u> | "{{item.message}}" posted by <em>{{item.author}}</em></li>
         {% endfor %}
         </ul>
-
-        <h3> Answered Questions</h3>
-        <ul> 
+        <h3 style="padding-left: 350px; padding-top: 25px;">Answered Questions</h3>
+        <hr style="color:#002c5f; width: 100%; background-color: #002c5f; height: 1px; opacity: 1; margin-left: 0px;">
+        <ul class="list-group list-group-flush" style="margin-left: 175px;"> 
         {% for item in feed2 %}
-            <li><u>{{item.playerName}}</u> answered "{{item.message}}" posted by <em>{{item.author}} |||| {{item.response}}</em></li>
+        <li class="list-group-item" style="padding:10px;  width: 75%;"><u>{{item.playerName}}</u> answered "{{item.message}}" posted by <em>{{item.author}}</em> with <b>"{{item.response}}"</b></li>
         {% endfor %}
         </ul>
        </p>
+    </div>
     </b> 
+</div>
 {% else %}
-<h2> <a href="/fan/roster"> Click here to go to the Team Tab to follow a player!</href></h2>
+<b>
+<h1>⚠️ Oh No! It appears you don't follow any players! ⚠️ </h1>
+<h2 style="text-align: center; padding: 15px;"> <a href="/fan/roster"> Click here to go to the <b>Roster Page</b> to follow a player!</a> </h2>
+    <img src="{% static 'home/images/how2follow.png' %}" width="800" height="400" >
+    <h3 style="text-align: center; padding: 15px">After following a player your feed will appear like this! </h3>
+    <img src="{% static 'home/images/mainscreen.png' %}" width="800" height="400" >
+</b>
 {% endif %}
-{% endblock %} 
+{% endblock %}

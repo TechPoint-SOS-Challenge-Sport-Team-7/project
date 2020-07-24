@@ -1,14 +1,121 @@
 {% extends 'home/base.html' %}
+{% load static %}
 {% block title %} Store {% endblock %} 
-{% block content %} <h1> Store Page  </h1>
+{% block content %}
 
-<blockquote class="embedly-card"><h4><a href="https://shop.colts.com/">Indianapolis Colts Apparel, Colts Store, Indianapolis Colts Gear | Colts Pro Shop</a></h4><p>Colts fans, look no further if you're searching for the best assortment of officially licensed Indianapolis Colts gear than right here at the official online store of the Colts! The Colts Pro Shop is your source for the freshest Indianapolis Colts jerseys, t-shirts, hats and much more to display your affection.</p></blockquote>
-<script async src="//cdn.embedly.com/widgets/platform.js" charset="UTF-8"></script>
+<h1>The Colts Shop</h1>
+<hr style="color:#002c5f; width: 35%; background-color: #002c5f; height: 1px; opacity: 1; margin-left: 0px;">
 
-<blockquote class="embedly-card"><h4><a href="https://shop.colts.com/indianapolis-colts-jerseys/t-25604767+d-2371225680+z-97-1250402595">Indianapolis Colts Jerseys, Colts Uniform, Jersey | shop.colts.com</a></h4><p>Indianapolis Colts Jerseys and Uniforms at the Official Online Store of the Colts. Enjoy Quick Flat-Rate Shipping On Any Size Order. Browse Indianapolis Colts Store for the latest Colts uniforms, jerseys, replica jerseys and more for men, women, and kids.</p></blockquote>
-<script async src="//cdn.embedly.com/widgets/platform.js" charset="UTF-8"></script>
 
-<blockquote class="embedly-card"><h4><a href="https://shop.colts.com/indianapolis-colts-men/t-58152545+ga-67+z-81659-1492377754">Men's Indianapolis Colts Gear, Mens Indianapolis Colts Apparel, Guys Clothes | shop.colts.com</a></h4><p>Men's Indianapolis Colts gear is at the Official online store of the Colts. Browse the latest guys Indianapolis Colts apparel, clothing, and Colts shorts.</p></blockquote>
-<script async src="//cdn.embedly.com/widgets/platform.js" charset="UTF-8"></script>
+<style>
+    body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-family: sans-serif;
+}
+
+.grid-container {
+  columns: 5 200px;
+  column-gap: 1.5rem;
+  width: 90%;
+  margin: 0 auto;
+  div {
+    width: 150px;
+    margin: 0 1.5rem 1.5rem 0;
+    display: inline-block;
+    width: 100%;
+    border: solid 2px black;
+    padding: 5px;
+    box-shadow: 5px 5px 5px rgba(0,0,0,0.5);
+    border-radius: 5px;
+    transition: all .25s ease-in-out;
+    &:hover img {
+      filter: grayscale(0);
+    }
+    &:hover {
+      border-color: coral;
+    }
+    img {
+      width: 100%;
+      filter: grayscale(100%);
+      border-radius: 5px;
+      transition: all .25s ease-in-out;
+    }
+    p {
+      margin: 5px 0;
+      padding: 0;
+      text-align: center;
+      font-style: italic;
+    }
+  }
+}
+</style>
+
+
+<div class="grid-container">
+  <div> <a href="https://shop.colts.com/mens-nike-philip-rivers-royal-indianapolis-colts-player-name-and-number-t-shirt/p-25972101065453+z-9940-3903319923?_ref=p-GALP:m-GRID:i-r1c1:po-4">
+        <img src="{% static 'home/images/rivers_jersey.jpg' %}" width="225" height="400">
+            </a>
+  </div>
+  <div>
+        <a href="https://shop.colts.com/mens-nike-royal-indianapolis-colts-secondary-logo-t-shirt/p-36108022236339+z-9329-3651919692?_ref=p-GALP:m-GRID:i-r2c1:po-7">
+            <img src="{% static 'home/images/secondary_logo_tshirt.jpg' %}" width="225" height="400">
+                </a>
+  </div>
+  <div>
+      <a href="https://shop.colts.com/adult-foco-indianapolis-colts-face-covering-3-pack/p-14099088428788+z-9511-1371034743?_ref=p-GALP:m-GRID:i-r2c0:po-6">
+          <img src="{% static 'home/images/colts_masks.jpg' %}" width="225" height="400">
+                </a>
+
+  </div>
+  <div>
+      <a href="https://shop.colts.com/womens-nfl-pro-line-by-fanatics-branded-heathered-charcoal-indianapolis-colts-first-string-v-neck-pullover-hoodie/p-25856728858528+z-9729-3283044653?_ref=p-GALP:m-GRID:i-r2c2:po-8">
+          <img src="{% static 'home/images/womens_sweatshirt.jpg' %}" width="225" height="400">
+                </a>
+  </div>
+  <div>
+      <a href="https://shop.colts.com/infant-darius-leonard-royal-indianapolis-colts-mainliner-name-and-number-bodysuit/p-36072566371413+z-9350-818469211?_ref=p-GALP:m-GRID:i-r1c2:po-5">
+          <img src="{% static 'home/images/baby_jersey.jpg' %}" width="225" height="400">
+                </a>
+
+  </div>
+  <div>
+      <a href="https://shop.colts.com/mens-nike-heather-gray-indianapolis-colts-fan-gear-element-performance-half-zip-pullover-jacket/p-25735172410348+z-9867-2907517383?_ref=p-DLP:m-GRID:i-r1c1:po-4">
+          <img src="{% static 'home/images/colts_sweatshirt.jpg' %}" width="225" height="400">
+                </a>
+  </div>
+  <div>
+      <a href="https://shop.colts.com/mens-new-era-black-indianapolis-colts-logo-omaha-59fifty-fitted-hat/p-25315966673921+z-9780-547624604?_ref=p-DLP:m-GRID:i-r1c1:po-4">
+          <img src="{% static 'home/images/colts_hat.jpg' %}" width="225" height="400">
+                </a>
+  </div>
+  <div>
+      <a href="https://shop.colts.com/mens-nike-ty-hilton-white-indianapolis-colts-game-player-jersey/p-25623174749321+z-9325-187833075?_ref=p-DLP:m-GRID:i-r8c1:po-25">
+          <img src="{% static 'home/images/ty_jersey.jpg' %}" width="225" height="400">
+                </a>
+
+  </div>
+  <div>
+      <a href="https://shop.colts.com/stance-indianapolis-colts-banner-crew-socks/p-36716946682892+z-9216-3280887106?_ref=p-GALP:m-GRID:i-r6c1:po-19">
+          <img src="{% static 'home/images/colts_socks.jpg' %}" width="225" height="400">
+                </a>
+  </div>
+  <div>
+      <blockquote class="embedly-card"><h4><a href="https://shop.colts.com/">Indianapolis Colts Apparel, Colts Store, Indianapolis Colts Gear | Colts Pro Shop</a></h4><p>Colts fans, look no further if you're searching for the best assortment of officially licensed Indianapolis Colts gear than right here at the official online store of the Colts! The Colts Pro Shop is your source for the freshest Indianapolis Colts jerseys, t-shirts, hats and much more to display your affection.</p></blockquote>
+      <script class="align-left" async src="//cdn.embedly.com/widgets/platform.js" charset="UTF-8"></script>
+  </div>
+  <div>
+      <blockquote class="embedly-card"><h4><a href="https://shop.colts.com/indianapolis-colts-jerseys/t-25604767+d-2371225680+z-97-1250402595">Indianapolis Colts Jerseys, Colts Uniform, Jersey | shop.colts.com</a></h4><p>Indianapolis Colts Jerseys and Uniforms at the Official Online Store of the Colts. Enjoy Quick Flat-Rate Shipping On Any Size Order. Browse Indianapolis Colts Store for the latest Colts uniforms, jerseys, replica jerseys and more for men, women, and kids.</p></blockquote>
+      <script class="align-right"async src="//cdn.embedly.com/widgets/platform.js" charset="UTF-8"></script>
+  </div>
+  <div>
+      <blockquote class="embedly-card"><h4><a href="https://shop.colts.com/indianapolis-colts-men/t-58152545+ga-67+z-81659-1492377754">Men's Indianapolis Colts Gear, Mens Indianapolis Colts Apparel, Guys Clothes | shop.colts.com</a></h4><p>Men's Indianapolis Colts gear is at the Official online store of the Colts. Browse the latest guys Indianapolis Colts apparel, clothing, and Colts shorts.</p></blockquote>
+      <script async src="//cdn.embedly.com/widgets/platform.js" charset="UTF-8"></script>
+  </div>
+
+</div>
+
 
 {% endblock %}
