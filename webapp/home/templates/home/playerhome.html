@@ -1,0 +1,25 @@
+{% extends 'home/base.html' %}
+{% block title %} Home {% endblock %} 
+{% block content %} 
+<h2> Respond to fan questions below! </h2> 
+<hr style="color:#002c5f; width: 50%; background-color: #002c5f; height: 1px; opacity: 1; margin-left: 0px;">
+    <b>
+        {% if present %}
+        <form method="post" action="" style="padding-left: 300px;">
+            {% csrf_token %}
+            <ul class="list-group" style="width: 80%; padding: 10px; text-align: center; text-align: center;">
+                    {% for q in feed %}
+                    <div style="padding: 5px;">
+                    <li class="list-group-item">
+                     <div style="padding-right: 10px;">{{q}}</div> <input type='text', name="{{q}}">
+                    </li>
+                    </div>
+                    {% endfor %}
+            </ul>
+            <div style="padding-left: 300px;"><button type="submit", name="respond", value="respond" class="btn btn-primary">Send Responses</button></div>
+        </form>
+        {% else %}
+        <h4 style="text-align: center;">{{a}}</h4>
+        {% endif %}
+    </b> 
+{% endblock %} 
