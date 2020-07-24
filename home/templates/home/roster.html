@@ -1,28 +1,45 @@
 {% extends 'home/base.html' %}
 {% block title %} Roster {% endblock %} 
 {% block content %} 
-<h1> Team Page  </h1> 
+<style type="text/css">
+    .pad{
+        padding: 15px;
+        width: 85%;
+        background: rgba(0, 44, 95, .9);
+        border-radius: 25px;
+        text-decoration-color: white;
+    }
+</style>
 <body>
     <p>
-        <h3>Roster:</h3>
-        <h4>Player # | Position | College | Height | Weight</h4>
+        <h3>Select players below to follow! </h3> 
+        <hr style="color:#002c5f; width: 35%; background-color: #002c5f; height: 1px; opacity: 1; margin-left: 0px;">
+        <div style="margin-left: 300px;">
+        <div style="padding-top: 5px;">
+        <h4 class="pad"> <div style="color:white; text-align: center;"> Player  -  Jersey #  |  Position  |  College  |  Height  |  Weight  |  Follow | 🔲 </div></h4>
+        </div>
         <form method="POST", action="">
             {% csrf_token %}
-            <button type="submit", name="update", value="update">Save</button> 
-                {% for player in roster %}
+            <div style="padding-top: 5px; padding-bottom: 10px;">
+            <button type="submit", name="update", value="update", style="margin-left: 200px; width: 300px; height: 40px;" class="btn btn-primary"><b>Click here to save!</b></button> 
+            </div>    
+            {% for player in roster %}
                 {% for follower in follows %}
+                <ul class="list-group" style="width: 80%; padding-top: .75px; text-align: center;">
                 {% if follower.username == player.username and follower.following == True %}
-                    <li>
-                        {{player.name}} ({{player.username}}) {{player.number}} | {{player.position}} | {{player.college}} | {{player.height}} | {{player.weight}}  <input type="checkbox", value="{{player.username}}", name="{{player.username}}" checked>
+                    <li class="list-group-item list-group-item-primary">
+                        {{player.name}}  -  {{player.number}}  |  {{player.position}}  |  {{player.college}}  |  {{player.height}}"  |  {{player.weight}} lbs  <input type="checkbox", value="{{player.username}}", name="{{player.username}}" checked>
                     </li>
                 {% elif follower.username == player.username and follower.following == False %}
-                    <li>
-                        {{player.name}} ({{player.username}}) {{player.number}} | {{player.position}} | {{player.college}} | {{player.height}} | {{player.weight}}  <input type="checkbox", value="{{player.username}}", name="{{player.username}}">
+                    <li class="list-group-item">
+                        {{player.name}}  -  {{player.number}}  |  {{player.position}}  |  {{player.college}}  |  {{player.height}}"  |  {{player.weight}} lbs  <input type="checkbox", value="{{player.username}}", name="{{player.username}}">
                     </li>
                 {%endif%}
+                 </ul>
                 {% endfor %}
                 {% endfor %}
             </form>
+        </div>
     </p>
 </body>
 {% endblock %} 
