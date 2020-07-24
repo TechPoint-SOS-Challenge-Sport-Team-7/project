@@ -49,10 +49,10 @@ def home(request):
     try:
         following = UserFollowing.objects.filter(author=request.user, following=True)
         if (following.count() == 0):
-            return render(request, "home/home.html", {"show": False})
+            return render(request, "home/home.html", {"show": False, "person": author})
     except ObjectDoesNotExist:
             print('no objects found')
-            return render(request, "home/home.html", {"show": False})
+            return render(request, "home/home.html", {"show": False, "person": author})
     print("FAN VIEW1")
     test = feed.filter(player="")
     test1 = feed2.filter(player="")
@@ -60,11 +60,11 @@ def home(request):
         test = test | feed.filter(player=player.username)
         test1 = test1 | feed2.filter(player=player.username)
         print("TEST: "+str(test))
-        if request.method == "POST":
-            target = players.get(username=request.POST.get('player'))
-            print(target)
-            form = Question(message=request.POST.get('message'), author=author, player=request.POST.get('player'), playerName=target.name, response='Unanswered', answered=False)
-            form.save()
+    if request.method == "POST":
+        target = players.get(username=request.POST.get('player'))
+        print(target)
+        form = Question(message=request.POST.get('message'), author=author, player=request.POST.get('player'), playerName=target.name, response='Unanswered', answered=False)
+        form.save()
     return render(request, "home/home.html", {"feed": reversed(test), "person": author, "feed2": reversed(test1), "show": True, "following": following})
 
 
@@ -135,7 +135,8 @@ def following(request):
 
 def drivein(response):
     all_movies = MovieInfo.objects.all()
-    return render(response, "home/drivein.html", {'Movies': all_movies})
+    author = response.user.get_username()
+    return render(response, "home/drivein.html", {'Movies': all_movies, "person": author})
 
 
 def confirmation(response):
