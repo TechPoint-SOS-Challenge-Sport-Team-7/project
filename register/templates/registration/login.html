@@ -14,6 +14,18 @@
         <!--END OF BOOTSTRAP HTML-->
         <title>Login</title>
         <style type="text/css">
+            .first-info{
+                background-image: url("{% static '/register/images/colts.jpg' %}");
+                background-repeat: no-repeat;
+                background-size: 100%;
+                min-width: 1024px;
+                min-height: 100%;
+                width: 100%;
+                height: auto;
+                position: fixed;
+                top:0;
+                left: 0;
+            }
             body {
             background-repeat:no-repeat;
             background-size:100%;
@@ -55,9 +67,20 @@
             border-top-left-radius: 0;
             border-top-right-radius: 0;
             }
+            h1{
+                text-align: center;
+            }
+            .center{
+            text-align: center;
+            }
             .main {
                 margin-left: 650px;
                 margin-top: 200px;
+                background-color: whitesmoke;
+                padding: 25px;
+                opacity: .90;
+                width: 400px;
+                border-radius: 25px;
             }
             .sidebar {
             height: 100%;
@@ -85,18 +108,19 @@
         }  
         </style>
     </head>
-    <body class="tdStyle">
+    <div class = "first-info">
+    <body>
         <div class = "sidebar"></div>
         <div class = "sidebar2"></div>
-        <div class='main', style="background-color:whitesmoke;">
-        <h1>Welcome Ultra Fan!</h1>
+        <div class='main'>
+        <h1><b>Welcome Fan!</b></h1>
         <form method="POST", class="form-signin">
             {% csrf_token %}
             {{form|crispy}}
             <p>Don't have an account? Create one <a href="/register"> here. </a></p>
-            <button type="submit" class="btn btn-success">Login</button>
+            <div class ="center"><button type="submit" class="btn btn-success">Login</button></div>
         </form>
-    </div>
+        </div>
     </body>
-    <td class="tdStyle"> 
+</div>
 </htmnl>
