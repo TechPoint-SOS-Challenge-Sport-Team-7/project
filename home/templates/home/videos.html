@@ -5,6 +5,8 @@
 {% block content %}
 <!doctype html>
 <html lang="en">
+<hr style="color:#002c5f; width: 35%; background-color: #002c5f; height: 1px; opacity: 1; margin-left: 0px;">
+
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -17,26 +19,17 @@
   </head>
   <body>
     <h1 class='text-center'>Welcome to your Colts video feed</h1><hr>
-    <div class="dropdown">
-      <button onclick="myFunction()" class="dropbtn">Team Highlights</button>
-    </div>
+
     <div class="containder" align="right">
-      <h2 class='text-center'>Choose a player to see highlights</h2><hr>
+      <h2 class='text-center'>Team Highlights</h2><hr>
     {% for i in obj %}
     {% video i.video 'small' %}
     {% endfor %}
 
 
       <div >
-    <h2 class='text-center'>Choose a player to see highlights</h2><hr>
+    <h2 class='text-center'>Player Highlights</h2><hr>
 
-    <select id="cars" name="cars">
-      <option value="volvo">Choose a player to see highlights</option>
-      <option value="saab">7 Jacoby Brissett</option>
-      <option value="fiat">9 Jacob Eason</option>
-      <option value="audi">6 Chad Kelly</option>
-      <option value="audi">6 Philip Rivers</option>
-    </select>
   </div>
 
     <iframe width="480" height="365"
