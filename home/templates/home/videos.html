@@ -2,7 +2,7 @@
 
 {% load embed_video_tags %}
 {% block title %} Videos {% endblock %}
-{% block content %} <h1> Videos Page  </h1>
+{% block content %}
 <!doctype html>
 <html lang="en">
   <head>
@@ -20,7 +20,7 @@
     <div class="dropdown">
       <button onclick="myFunction()" class="dropbtn">Team Highlights</button>
     </div>
-    <div class="containder">
+    <div class="containder" align="right">
       <h2 class='text-center'>Choose a player to see highlights</h2><hr>
     {% for i in obj %}
     {% video i.video 'small' %}
